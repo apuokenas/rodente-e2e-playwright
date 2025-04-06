@@ -1,0 +1,64 @@
+{
+  "name": "rodente-e2e-playwright",
+  "version": "1.0.0",
+  "description": "End-to-end tests for rodente.lt using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "prepare": "husky install && npx playwright install --with-deps",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:smoke": "playwright test -g '@smoke'",
+    "test:ci": "playwright test --reporter=html,github",
+    "test:parallel": "playwright test --workers=4",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apuokenas/rodente-e2e-playwright.git"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "rodente"
+  ],
+  "author": "Apuokėnas",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "config": {
+    "testEnv": "staging"
+  },
+  "homepage": "https://github.com/apuokenas/rodente-e2e-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^0.15.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
